@@ -1,0 +1,9 @@
+s=zpk('s');
+L=-5/((1-10*s)*(1+0.1*s))
+[z,p,k]=zpkdata(L,'v')
+nyquist(L)
+T=feedback(L,1)
+step(T)
+[z,p,k]=zpkdata(T,'v')
+figure
+pzmap(T)
